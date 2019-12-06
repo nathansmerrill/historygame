@@ -6,6 +6,29 @@
 }
 body {
   font-family: "Merriweather", "sans-serif";
+  background-image: url("../assets/parchment.jpg");
+}
+
+#startingPage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.title {
+  font-size: 500%;
+}
+
+#startButton {
+  background-color: #f5bb47;
+  padding-right: 1.5em;
+  padding-left: 1.5em;
+  border: none;
+}
+#startButton:hover {
+  background-color: #ac9447;
 }
 
 /*# sourceMappingURL=main.css.map */

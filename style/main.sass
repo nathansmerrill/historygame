@@ -3,6 +3,25 @@
     font-style: normal
     font-weight: 400
     src: local('Merriweather'), url('../fonts/Merriweather/Merriweather-Regular.ttf')
-
+=flexCenter($direction)
+    display: flex
+    justify-content: center
+    align-items: center
+    //text-align: center
+    flex-direction: $direction
+    height: 100vh
 body
     font-family: 'Merriweather', 'sans-serif'
+    //background-color: #fff4de
+    background-image: url("../assets/parchment.jpg")
+#startingPage
+    +flexCenter(column)
+.title
+    font-size: 500%
+#startButton
+    background-color: #f5bb47
+    padding-right: 1.5em
+    padding-left: 1.5em
+    border: none
+    &:hover
+        background-color: #ac9447
