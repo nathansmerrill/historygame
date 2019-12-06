@@ -1,0 +1,11 @@
+@font-face {
+  font-family: "Merriweather";
+  font-style: normal;
+  font-weight: 400;
+  src: local("Merriweather"), url("../fonts/Merriweather/Merriweather-Regular.ttf");
+}
+body {
+  font-family: "Merriweather", "sans-serif";
+}
+
+/*# sourceMappingURL=main.css.map */
