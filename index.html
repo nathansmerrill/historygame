@@ -9,11 +9,12 @@
     <link rel="stylesheet" href="lib/bootstrap.min.css">
     <link rel="stylesheet" href="style/main.css">
 
+    <link rel="icon" type="image/png" href="assets/favicon.png">
     <title>History Game</title>
 </head>
 <body>
 <div id="startingPage" class="col-12">
-    <h1 class="title lea">Welcome to our history project</h1>
+    <h1 class="title">Welcome to our history project</h1>
         <p class="lead">-Nathan M, Harper, and Campbell Sh</p>
 <!--        <hr>-->
         <p>Instructions:</p>
@@ -23,14 +24,18 @@
             <li>Always be looking for secrets. Some secrets give you time bonuses, while others are just for fun</li>
             <li> Learn, find the next page, remember your information and have fun!</li>
         </ol>
-    <button id="startButton" class="btn btn-primary">Start</button>
+    <button id="startButton" class="btn btn-main">Start</button>
 </div>
 <div id="articlePage" class="col-12">
-    <h3 id="timer"></h3>
-    <h1 class="title">My Title</h1>
-    <p class="lead">
-        Article
-    </p>
+    <h4 id="timer" class="badge badge-secondary">0:00</h4>
+<!--    <hr>-->
+    <h1 id="articleTitle" class="title">My Title</h1>
+    <div id="articleContent"></div>
+    <h6>Select Article</h6>
+    <span id="articleButtons"></span>
+</div>
+<div id="secretPasswordPage" class="col-12">
+
 </div>
 
 <script src="lib/jquery-3.4.1.min.js"></script>
