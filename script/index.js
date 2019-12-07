@@ -26,8 +26,12 @@ const articles = [
             </div>
             <div class="container timeline-right">
                 <div class="timeline-content">
-                    <h2>1969</h2>
-                    <p>They did more stuff</p>
+                    <h2>1849</h2>
+                    <ul>
+                        <li>Chinese migrants start arriving in America because China is full of war, rebellion, high taxes, floods, and famine</li>
+                        <li>America seems to beckon them</li>
+                        <li>America has good Gold and job opportunities</li>
+                    </ul>
                 </div>
             </div>
         </div>
