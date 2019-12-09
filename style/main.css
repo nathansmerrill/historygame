@@ -104,6 +104,10 @@ body {
   background-image: url("../assets/parchment.jpg");
 }
 
+h4 {
+  margin-top: 0.5em;
+}
+
 #startingPage {
   display: flex;
   justify-content: center;
@@ -115,6 +119,14 @@ body {
 #articlePage {
   display: flex;
   justify-content: none;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+}
+
+#finishPage {
+  display: flex;
+  justify-content: center;
   align-items: center;
   flex-direction: column;
   height: 100vh;

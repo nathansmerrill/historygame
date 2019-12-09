@@ -4,10 +4,81 @@ let currentPageI = 0;
 const questionTypes = {
     NUMBER : 0,
     CHOICE : 1,
-    TRUEFALSE : 2
 };
-const pages = [
-     {
+pages = [
+    {
+        title : 'Random Facts',
+        content: `
+        <ul>
+            <li>The US acquired California in the Treaty of Guadalupe Hidalgo.</li>
+            <li>Chinese gave California the Nickname 'Gam Samm' (or gold mountain)</li>
+            <li>Laundrywork was one of the easiest jobs to take up as a chinese immigrant</li>
+            <li>When the chinese exclusion act was put into place, the chinese made up only 0.002% of the population</li>
+            <li>Before the chinese exclusion act, some men had been able to bring wives in, even though they made up only 5% of the population</li>
+            <li>The first chinese american born in washington was Chin Lem, and his Father was Chin Gee Hee, who was one of the few that brought his wife in</li>
+            <li>The fact that there were few women during the chinese exclusion acts was a big problem for chinese</li>
+            <li>Organizations were part of life in chinese America from the start</li>
+            <li>Groups called tongs controlled prostitution and gambling, but also protected many chinese</li>
+            <li>Groups called fongs were made up of family/village members</li>
+            <li>Many Chinatowns formed, including ones in Oakland, Los Angeles, Chicago, Seattle, Portland, New York, and Boston as well as San Francisco</li>
+        </ul>
+        `,
+        questions : [
+            {
+                content : 'What was the name of the first chinese american born in washington?',
+                type : questionTypes.CHOICE,
+                choices : [
+                    'Ching Lin',
+                    'Ching Gee Hee',
+                    'Chin Lem',
+                    'Chin Gee Hee'
+                ],
+                correctAnswer: 2
+            },
+            {
+                content : 'Name 3 Cities that were all Chinatowns',
+                type : questionTypes.CHOICE,
+                choices : [
+                    'Phoenix,, Seattle, Portland',
+                    'Los Angeles,, Oakland, Boston',
+                    'San Francisco,, Seattle, Houston',
+                    'Portland,, Philadelphia, San Diego'
+                ],
+                correctAnswer: 1
+            },
+            {
+                content : 'Every 1 in _____ people were chinese during the Chinese Exclusion Act',
+                type : questionTypes.NUMBER,
+                correctAnswer: 50000
+            },
+            {
+                content : 'TRUE OR FALSE: Tongs protected Chinese migrants',
+                type : questionTypes.CHOICE,
+                choices : [
+                    'True',
+                    'False'
+                ],
+                correctAnswer: 0
+            },
+            {
+                content : 'What was a big problem for chinese during the Chinese Exclusion Act',
+                type : questionTypes.CHOICE,
+                choices : [
+                    'Laundrywork was highly contested',
+                    'There were very few women (1 in 20 people)',
+                    'There were very few women (1 in 5 people)',
+                    'The Treaty of Guadalupe Hidalgo '
+                ],
+                correctAnswer: 1
+            }
+        ],
+        addPage : 0
+    }
+
+];
+
+const hiddenPages = [
+    {
         title : 'Timeline',
         content : `
         <div class="timeline">
@@ -137,31 +208,118 @@ const pages = [
             </div>
         </div>
         `,
-         questions : [
-             {
-                 content : 'How many years did the Chinese Exclusion Act last?',
-                 type : questionTypes.NUMBER,
-                 correctAnswer : 61
-             },
-             {
-                 content : "Did the percent of Chinese women spike in 1910-30?",
-                 // type : questionTypes.TRUEFALSE,
-                 // correctAnswer : true
-                 type : questionTypes.NUMBER,
-                 correctAnswer : 69
-             }
-         ],
-         addPage : 0
-    }
-];
+        questions : [
+            {
+                content : 'How many years did the Chinese Exclusion Act last?',
+                type : questionTypes.NUMBER,
+                correctAnswer : 61
+            },
+            {
+                content : "How much was the miner's tax (in today's money)?",
+                // correctAnswer : true
+                type : questionTypes.NUMBER,
+                correctAnswer : 84.72
+            },
+            {
+                content : 'What event happened in 1854',
+                type : questionTypes.CHOICE,
+                choices : [
+                    'The Central Pacific Railroad Completed',
+                    'The Chinese Miner Tax was Implemented',
+                    'There was a large earthquake and fire',
+                    'Supreme Court declares non-whites cannot give evidence against whites in court.'
+                ],
+                correctAnswer: 3
 
-const hiddenPages = [
+            },
+            {
+                content : 'Why do you think that the Chinese Exclusion act was Implemented?',
+                type : questionTypes.CHOICE,
+                choices : [
+                    'White people wanted more Racial Purity',
+                    'Many White people thought that Chinese were going to "steal" their jobs',
+                    'The economy started failing',
+                    'All of the Above'
+                ],
+                correctAnswer: 3
+            },
+            {
+                content : 'What chinese organization was made primarily of family or village members?',
+                type : questionTypes.CHOICE,
+                choices : [
+                    'Tongs',
+                    'Fongs',
+                    'Chinese Miners',
+                    'Clans'
+                ],
+                correctAnswer: 1
+            }
+        ],
+        addPage : 1
+    },
     {
-        title : 'TestHidden Page',
-        content: `
-        <h1>Efe dummy thicc tho</h1>
-        `
+        title : 'Paper Sons',
+        content : `
+        <p>Many young Chinese men would try to enter the US as "paper sons". <br>
+        They would pretend to be the sons of chinese in the US. Eventually, <br>
+        they couldn't just claim to be the children of these people they would <br>
+        have to take a test to prove that these people were their fathers. <br>
+        During the voyage, the paper sons would have to memorize lots of info <br>
+        about their "fathers". Some people needed to memorize 200 pages of info! <br>
+        Some questions were very specific, such as "How many steps are there in <br>
+        your house" , and "where do you sleep". Sometimes they needed to lie and <br>
+        think quick to get in to the US. When they had confronting answers then <br>
+        they would have to make up lots of lies to get in
+        </p>
+        `,
+        questions : [
+            {
+                content : 'How many pages of information did some paper sons have to memorize?',
+                type : questionTypes.NUMBER,
+                correctAnswer : 200
+            },
+            {
+                content : 'What\'s an example of a specific question paper sons were asked?',
+                type : questionTypes.CHOICE,
+                choices : [
+                    'How many izzys do you buy every day?',
+                    'How many doors are in your house?',
+                    'How many steps are there in your house?',
+                    'What kind of floor do you have in your house?'
+                ],
+                correctAnswer : 2
+            },{
+                content : 'How many years did it take to build the central pacific railroad?',
+                type : questionTypes.NUMBER,
+                correctAnswer : 20
+            },
+            {
+                content : 'What year did the california records building burn?',
+                type : questionTypes.NUMBER,
+                correctAnswer : 1906
+            },{
+                content : 'What was the name of the Agreement that gave the US California',
+                type : questionTypes.CHOICE,
+                choices : [
+                    'Treaty of Guadalupe Hidalgo.',
+                    'Kin Huie Agreement',
+                    'Rutherford B. Hayes Act',
+                    'The California Agreement'
+                ],
+                correctAnswer : 0
+            },{
+                content : 'TRUE OR FALSE: There wasnt a chinatown in New York',
+                type : questionTypes.CHOICE,
+                choices : [
+                    'True',
+                    'False'
+                ],
+                correctAnswer : 1
+            }
+        ]
+
     }
+
 ];
 
 window.addEventListener("keydown",function (e) {
@@ -171,25 +329,51 @@ window.addEventListener("keydown",function (e) {
         alert("Nice Try, but that makes it a little too easy :) +30 seconds");
     }
 });
-
+function formatTime(time) {
+    let seconds = time % 60;
+    return Math.floor(time/60) + ':' +
+        ((seconds <= 9) ? '0' : '') +
+        seconds;
+}
 function tickTimer() {
     timer++;
     // $('#timer').text(Math.floor(counter / 60) +
     //     ((Math.floor(counter/60) == 1) ? ' min ' : ' mins ') +
     //     (counter % 60) + ' sec');
-    let seconds = timer % 60;
-    $('#timer').text(Math.floor(timer/60) + ':' +
-        ((seconds <= 9) ? '0' : '') +
-        seconds);
+
+    $('#timer').text(formatTime(timer));
+}
+function loadArticleButtons() {
+    $('#articleButtons').html('');
+    pages.map((value, index) => {
+        // $('#articleButtons').append('<button class="btn btn-main article-button">' + (index+1) + '</button>');
+        $('#articleButtons').append('<button class="btn btn-main article-button" articleIndex=\"' + index + '\">' + pages[index].title + '</button>');
+    });
+    $('.article-button').click( function() {
+        // setArticle($(this).text()-1);
+        let articleIndex = $(this).attr('articleIndex');
+        if (articleIndex < currentPageI) {
+            timer += 15;
+        }
+        setArticle($(this).attr('articleIndex'));
+    });
 }
 function checkForRightAnswers(page) {
-    // console.log($('.questionInput, [disabled]').length);
     if ($('.questionInput[disabled]').length === page.questions.length) {
-        alert('all correct answers');
-        // pages.push(hiddenPages[page.addPage]);
+        console.log('all page answers correct');
+        if (page.addPage != null) {
+            pages.push(hiddenPages[page.addPage]);
+            loadArticleButtons();
+        } else {
+            console.log('finished quiz');
+            $('#articlePage').hide();
+            $('#finishPage').show();
+            $('#finishTitle').text('Congratulations, you finished in ' + Math.floor(timer/60) + ' minutes and ' + (timer % 60) + ' seconds!');
+            $('#restartButton').click( () => {
+               window.location.href = 'https://nathanm.cf/historygame';
+            });
+        }
     }
-    // console.log($('.questionInput[disabled]').length);
-    console.log(page.questions.length);
 }
 function setArticle(pageI) {
     currentPageI = pageI;
@@ -210,9 +394,13 @@ function setArticle(pageI) {
                     break;
                 case questionTypes.CHOICE:
                     console.log('loading multiple choice question');
-                    break;
-                case questionTypes.TRUEFALSE:
-                    console.log('loading true false question');
+                    articleQuestions.append(`
+                    <select class="form-control questionInput" questionIndex=\"`+ i +`\">
+                        `+ question.choices.map( (answer, i) => {
+                        return ('<option value=\"'+ i +'\">' + answer.replace(',', '') + '</option>')
+                    }) +`
+                    </select>
+                    `);
                     break;
             }
         }
@@ -220,20 +408,34 @@ function setArticle(pageI) {
         $('#checkAnswers').click( function() {
             for (let i = 0; i < page.questions.length; i++) {
                 let question = page.questions[i];
-                switch (question.type) {
-                    case questionTypes.NUMBER:
-                        let questionInput = $("[questionIndex=\'"+ i +"\']");
-                        if (questionInput.val() == question.correctAnswer) {
-                            console.log('correct answer');
-                            questionInput.prop("disabled", true);
-                            questionInput.css('background-color', 'rgba(17,129,17,0.69)');
-                            checkForRightAnswers(page);
-                        } else {
-                            console.log('wrong answer');
-                            questionInput.css('background-color', 'rgba(224,145,148,0.8)');
-                        }
-                        break;
+                let questionInput = $("[questionIndex=\'"+ i +"\']");
+                if (questionInput.val() == question.correctAnswer) {
+                    questionInput.prop('disabled', true);
+                    questionInput.css('background-color', 'rgba(17,129,17,0.69)');
+                    checkForRightAnswers(page);
+                } else {
+                    questionInput.css('background-color', 'rgba(224,145,148,0.8)');
                 }
+                // switch (question.type) {
+                //     case questionTypes.NUMBER:
+                //         if (questionInput.val() == question.correctAnswer) {
+                //             questionInput.prop("disabled", true);
+                //             questionInput.css('background-color', 'rgba(17,129,17,0.69)');
+                //             checkForRightAnswers(page);
+                //         } else {
+                //             questionInput.css('background-color', 'rgba(224,145,148,0.8)');
+                //         }
+                //         break;
+                //     case questionTypes.CHOICE:
+                //         if (questionInput.val() == question.correctAnswer) {
+                //             questionInput.prop('disabled', true);
+                //             questionInput.css('background-color', 'rgba(17,129,17,0.69)');
+                //             checkForRightAnswers(page);
+                //         } else {
+                //             questionInput.css('background-color', 'rgba(224,145,148,0.8)');
+                //         }
+                //         break;
+                // }
             }
         });
     }
@@ -242,21 +444,15 @@ function setArticle(pageI) {
 $(document).ready(() => {
     // tickTimer();
     $('#articlePage').hide();
+    $('#finishPage').hide();
     $('#startButton').click( () => {
         $('#startingPage').hide();
         $('#articlePage').show();
         timerInterval = setInterval(tickTimer, 1000);
         //this line of code is very largehead /\
         setArticle(0);
-        pages.map((value, index) => {
-            // $('#articleButtons').append('<button class="btn btn-main article-button">' + (index+1) + '</button>');
-            $('#articleButtons').append('<button class="btn btn-main article-button" articleIndex=\"' + index + '\">' + pages[index].title + '</button>');
-        });
-        $('.article-button').click( function() {
-           // setArticle($(this).text()-1);
-            setArticle($(this).attr('articleIndex'));
-        });
-        //before you heck with this  realize its the only way it works fsr
+        loadArticleButtons();
+        //before you heck with this  realize its the only way it works fsr vruhhhhhhhhhhh
         // $(document).on('click','#check', function() {
         //     let questions = pages[currentPageI].questions;
         //     for (let i = 0; i < questions.length; i++) {
@@ -265,7 +461,7 @@ $(document).ready(() => {
         //     }
         // });
         $('#rollButton').click( function() {
-            let rollPerson = confirm('Are you sure you don\'t want to finish the scavenger hunt legitimately?');
+            let rollPerson = confirm('Do you really want to cheat?');
             if (rollPerson) {
                 window.open("https://www.youtube.com/watch?v=dQw4w9WgXcQ");
                 timer += 60;
@@ -274,4 +470,3 @@ $(document).ready(() => {
         });
     });
 });
-
