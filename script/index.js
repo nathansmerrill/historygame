@@ -25,7 +25,7 @@ pages = [
         `,
         questions : [
             {
-                content : 'What was the name of the first chinese american born in washington?',
+                content : 'What was the name of the first Chinese american born in washington?',
                 type : questionTypes.CHOICE,
                 choices : [
                     'Ching Lin',
@@ -36,7 +36,7 @@ pages = [
                 correctAnswer: 2
             },
             {
-                content : 'Name 3 Cities that were all Chinatowns',
+                content : 'Name 3 Cities that have Chinatowns',
                 type : questionTypes.CHOICE,
                 choices : [
                     'Phoenix,, Seattle, Portland',
@@ -61,7 +61,7 @@ pages = [
                 correctAnswer: 0
             },
             {
-                content : 'What was a big problem for chinese during the Chinese Exclusion Act',
+                content : 'What was a big problem for Chinese during the Chinese Exclusion Act',
                 type : questionTypes.CHOICE,
                 choices : [
                     'Laundrywork was highly contested',
@@ -238,10 +238,10 @@ const hiddenPages = [
                 choices : [
                     'White people wanted more Racial Purity',
                     'Many White people thought that Chinese were going to "steal" their jobs',
-                    'The economy started failing',
-                    'All of the Above'
+                    'All of the Above',
+                    'The economy started failing'
                 ],
-                correctAnswer: 3
+                correctAnswer: 2
             },
             {
                 content : 'What chinese organization was made primarily of family or village members?',
@@ -282,7 +282,7 @@ const hiddenPages = [
                 content : 'What\'s an example of a specific question paper sons were asked?',
                 type : questionTypes.CHOICE,
                 choices : [
-                    'How many izzys do you buy every day?',
+                    'How many siblings do you have?',
                     'How many doors are in your house?',
                     'How many steps are there in your house?',
                     'What kind of floor do you have in your house?'
@@ -362,7 +362,10 @@ function checkForRightAnswers(page) {
     if ($('.questionInput[disabled]').length === page.questions.length) {
         console.log('all page answers correct');
         if (page.addPage != null) {
-            pages.push(hiddenPages[page.addPage]);
+            if (page.pageAdded === undefined) {
+                pages.push(hiddenPages[page.addPage]);
+                page.pageAdded = true;
+            }
             loadArticleButtons();
         } else {
             console.log('finished quiz');
