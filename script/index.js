@@ -352,8 +352,7 @@ $(window).keydown(function(e){
 function formatTime(time) {
     let seconds = time % 60;
     return Math.floor(time/60) + ':' +
-        ((seconds <= 9) ? '0' : '') +
-        seconds;
+        ((seconds <= 9) ? '0' : '') + seconds;
 }
 function tickTimer() {
     timer++;
@@ -492,9 +491,15 @@ $(document).ready(() => {
         $('#rollButton').click( function() {
             let rollPerson = confirm('Do you really want to cheat?');
             if (rollPerson) {
-                window.open("https://www.youtube.com/watch?v=dQw4w9WgXcQ");
-                timer += 60;
-                alert('Enjoy your 1 minute penalty ;)');
+                // window.open("https://www.youtube.com/watch?v=dQw4w9WgXcQ");
+                // $('#articlePage').append('<iframe width="560" height="315" src="https://www.youtube.com/embed/dQw4w9WgXcQ"?&autoplay="1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>');
+                new Audio('assets/rolled.mp3').play();
+                $('body').css('background-image','url(assets/rolled.jpg)')
+                    .css('background-size', 'cover');
+                setTimeout( () => {
+                    timer += 60;
+                    alert('Enjoy your 1 minute penalty ;)');
+                }, 1);
             }
         });
     });
