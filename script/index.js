@@ -392,7 +392,12 @@ function checkForRightAnswers(page) {
             console.log('finished quiz');
             $('#articlePage').hide();
             $('#finishPage').show();
-            $('#finishTitle').text('Congratulations, you finished in ' + Math.floor(timer/60) + ' minutes and ' + (timer % 60) + ' seconds!');
+            let minutes = Math.floor(timer/60);
+            let seconds = timer % 60;
+            $('#finishTitle').text('Congratulations, you finished in ' + minutes +
+                ((minutes === 1) ? ' minute ' : ' minutes ') + ' and ' + seconds +
+                ((seconds === 1) ? ' second' : ' seconds') + '!');
+
             $('#restartButton').click( () => {
                window.location.href = 'https://nathanm.cf/historygame';
             });
