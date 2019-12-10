@@ -11,6 +11,7 @@ pages = [
         content: `
         <ul>
             <li>The US acquired California in the Treaty of Guadalupe Hidalgo.</li>
+            <li>The Chinese Exclusion Act was when the US made it illegal for Chinese to migrate into the US</li>
             <li>Chinese gave California the Nickname 'Gam Samm' (or gold mountain)</li>
             <li>Laundrywork was one of the easiest jobs to take up as a chinese immigrant</li>
             <li>When the chinese exclusion act was put into place, the chinese made up only 0.002% of the population</li>
@@ -59,6 +60,17 @@ pages = [
                     'False'
                 ],
                 correctAnswer: 0
+            },
+            {
+                content : 'What did the Chinese Exclusion Act Prevent?',
+                type : questionTypes.CHOICE,
+                choices : [
+                    'Chinese getting jobs',
+                    'Chinese migrating to the US',
+                    'Chinese owning land',
+                    'Chinese being payed the same as white people'
+                ],
+                correctAnswer : 1
             },
             {
                 content : 'What was a big problem for Chinese during the Chinese Exclusion Act',
@@ -170,6 +182,7 @@ const hiddenPages = [
                     <h2>1882</h2>
                     <ul>
                         <li>3 years after Rutherford B. Hayes issues the warning. The US passes a law that makes it illegal for chinese to immigrate to the US.</li>
+                        <li>This is known as the Chinese Exclusion Act</li>
                     </ul>
                 </div>
             </div>
@@ -238,10 +251,10 @@ const hiddenPages = [
                 choices : [
                     'White people wanted more Racial Purity',
                     'Many White people thought that Chinese were going to "steal" their jobs',
-                    'All of the Above',
-                    'The economy started failing'
+                    'The economy started failing',
+                    'All of the Above'
                 ],
-                correctAnswer: 2
+                correctAnswer: 3
             },
             {
                 content : 'What chinese organization was made primarily of family or village members?',
@@ -322,8 +335,15 @@ const hiddenPages = [
 
 ];
 
-window.addEventListener("keydown",function (e) {
-    if (e.keyCode === 114 || (e.ctrlKey && e.keyCode === 70)) {
+// window.addEventListener("keydown",function (e) {
+//     if (e.keyCode === 114 || (e.ctrlKey && e.keyCode === 70)) {
+//         e.preventDefault();
+//         timer += 30;
+//         alert("Nice Try, but that makes it a little too easy :) +30 seconds");
+//     }
+// });
+$(window).keydown(function(e){
+    if ((e.ctrlKey || e.metaKey) && e.keyCode === 70) {
         e.preventDefault();
         timer += 30;
         alert("Nice Try, but that makes it a little too easy :) +30 seconds");
@@ -356,6 +376,7 @@ function loadArticleButtons() {
             timer += 15;
         }
         setArticle($(this).attr('articleIndex'));
+        $("html, body").animate({ scrollTop: 0 }, "slow");
     });
 }
 function checkForRightAnswers(page) {
