@@ -369,16 +369,55 @@ function loadArticleButtons() {
         $('#articleButtons').append('<button class="btn btn-main article-button" articleIndex=\"' + index + '\">' + pages[index].title + '</button>');
     });
     $('.article-button').click( function() {
+        // Save current answers
+        pages[currentPageI]['savedAnswers'] = [];
+        $('.questionInput').map(function() {
+            pages[currentPageI]['savedAnswers'].push($(this).val());
+        });
+
         // setArticle($(this).text()-1);
         let articleIndex = $(this).attr('articleIndex');
         if (articleIndex < currentPageI) {
             timer += 15;
         }
-        setArticle($(this).attr('articleIndex'));
+        setArticle(articleIndex);
         $("html, body").animate({ scrollTop: 0 }, "slow");
     });
 }
-function checkForRightAnswers(page) {
+function checkAnswers(page) {
+    for (let i = 0; i < page.questions.length; i++) {
+        let question = page.questions[i];
+        let questionInput = $("[questionIndex=\'"+ i +"\']");
+        if (questionInput.val() == question.correctAnswer) {
+            questionInput.prop('disabled', true);
+            questionInput.css('background-color', 'rgba(17,129,17,0.69)');
+            checkForAllRightAnswers(page);
+        } else {
+            questionInput.css('background-color', 'rgba(224,145,148,0.8)');
+        }
+        // switch (question.type) {
+        //     case questionTypes.NUMBER:
+        //         if (questionInput.val() == question.correctAnswer) {
+        //             questionInput.prop("disabled", true);
+        //             questionInput.css('background-color', 'rgba(17,129,17,0.69)');
+        //             checkForAllRightAnswers(page);
+        //         } else {
+        //             questionInput.css('background-color', 'rgba(224,145,148,0.8)');
+        //         }
+        //         break;
+        //     case questionTypes.CHOICE:
+        //         if (questionInput.val() == question.correctAnswer) {
+        //             questionInput.prop('disabled', true);
+        //             questionInput.css('background-color', 'rgba(17,129,17,0.69)');
+        //             checkForAllRightAnswers(page);
+        //         } else {
+        //             questionInput.css('background-color', 'rgba(224,145,148,0.8)');
+        //         }
+        //         break;
+        // }
+    }
+}
+function checkForAllRightAnswers(page) {
     if ($('.questionInput[disabled]').length === page.questions.length) {
         console.log('all page answers correct');
         if (page.addPage != null) {
@@ -431,41 +470,21 @@ function setArticle(pageI) {
                     `);
                     break;
             }
+
         }
-        articleQuestions.append('<div id="checkAnswers"><button class="btn btn-main">Check Answers</button></div>');
-        $('#checkAnswers').click( function() {
+
+        // Display saved answers
+        if (page['savedAnswers'] !== undefined) {
+            console.log('loading saved answers');
             for (let i = 0; i < page.questions.length; i++) {
-                let question = page.questions[i];
-                let questionInput = $("[questionIndex=\'"+ i +"\']");
-                if (questionInput.val() == question.correctAnswer) {
-                    questionInput.prop('disabled', true);
-                    questionInput.css('background-color', 'rgba(17,129,17,0.69)');
-                    checkForRightAnswers(page);
-                } else {
-                    questionInput.css('background-color', 'rgba(224,145,148,0.8)');
-                }
-                // switch (question.type) {
-                //     case questionTypes.NUMBER:
-                //         if (questionInput.val() == question.correctAnswer) {
-                //             questionInput.prop("disabled", true);
-                //             questionInput.css('background-color', 'rgba(17,129,17,0.69)');
-                //             checkForRightAnswers(page);
-                //         } else {
-                //             questionInput.css('background-color', 'rgba(224,145,148,0.8)');
-                //         }
-                //         break;
-                //     case questionTypes.CHOICE:
-                //         if (questionInput.val() == question.correctAnswer) {
-                //             questionInput.prop('disabled', true);
-                //             questionInput.css('background-color', 'rgba(17,129,17,0.69)');
-                //             checkForRightAnswers(page);
-                //         } else {
-                //             questionInput.css('background-color', 'rgba(224,145,148,0.8)');
-                //         }
-                //         break;
-                // }
+                console.log('loading saved answer ' + i + ' with value ' + page['savedAnswers'][i]);
+                $("[questionIndex=\'" + i +"\'").val(page['savedAnswers'][i]);
             }
-        });
+            checkAnswers(page);
+        }
+
+        articleQuestions.append('<div id="checkAnswers"><button class="btn btn-main">Check Answers</button></div>');
+        $('#checkAnswers').click(function() {checkAnswers(page)});
     }
 }
 
